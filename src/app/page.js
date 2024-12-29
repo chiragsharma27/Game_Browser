@@ -19,17 +19,17 @@ const HomePage = () => {
           'https://s3-ap-southeast-1.amazonaws.com/he-public-data/gamesarena274f2bf.json'
         );
 
-        console.log('API Response:', response.data); // Debug API response
+        console.log('API Response:', response.data); 
 
-        setGames(response.data.slice(1)); // Initialize games
-        setFilteredGames(response.data.slice(1)); // Initialize filteredGames
+        setGames(response.data.slice(1)); 
+        setFilteredGames(response.data.slice(1));
 
         // Extract unique platforms
         const uniquePlatforms = [
           ...new Set(
             response.data
               .map((game) => game.platform)
-              .filter((platform) => platform) // Exclude invalid platforms
+              .filter((platform) => platform) 
           ),
         ];
         setPlatforms(uniquePlatforms);
@@ -43,7 +43,7 @@ const HomePage = () => {
 
   const handleSearch = (term) => {
     if (!term) {
-      setFilteredGames(games); // Reset if search term is empty
+      setFilteredGames(games); 
       return;
     }
 
@@ -55,7 +55,7 @@ const HomePage = () => {
 
   const handleSort = (platform) => {
     if (!platform) {
-      setFilteredGames(games); // Reset to all games if no platform selected
+      setFilteredGames(games); 
       return;
     }
 
